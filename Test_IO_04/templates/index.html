@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+                <h1>Optimización del Tiempo de Servicio</h1>
+                <p>Bienvenido a nuestra aplicación de optimización del tiempo de servicio. Aquí, utilizamos la Teoría de Colas y Analytics Predictivas para mejorar la eficiencia en la prestación de servicios.</p>
+
+                <h2>Cómo funciona:</h2>
+                <p>Nuestra aplicación se basa en un modelo de regresión lineal implementado con Machine Learning. Este modelo toma en cuenta la variable de entrada y predice el tiempo de servicio necesario. Para ello, analiza datos históricos de dos conjuntos:</p>
+                <ul>
+                    <li><strong>Con Solución:</strong> Datos de tiempos de servicio con solución a un problema específico.</li>
+                    <li><strong>Sin Solución:</strong> Datos de tiempos de servicio sin solución a un problema.</li>
+                </ul>
+
+                <p>Para ambos conjuntos de datos, generamos un resumen que muestra la efectividad de nuestro modelo predictivo. Además, presentamos gráficos que ilustran las predicciones realizadas por el algoritmo.</p>
+
+                <h2>Explora las Opciones:</h2>
+                <p>Para obtener más detalles, puedes navegar por las siguientes secciones:</p>
+                <ul>
+                    <li><a href="/con_solucion">Ver datos con solución</a>: Explora los datos y las predicciones con solución.</li>
+                    <li><a href="/sin_solucion">Ver datos sin solución</a>: Examina los datos y las predicciones sin solución.</li>
+                </ul>
+{% endblock %}

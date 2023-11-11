@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>Con Solución</h1>
+<h2>Datos</h2>
+{{ data_table|safe }}
+
+<h2>Resultados</h2>
+{{ summary_con }}
+
+<h2>Gráfico</h2>
+<div>
+    {{ graph_con|safe }}
+</div>
+
+
+
+{% endblock %}
