@@ -10,8 +10,9 @@ import base64
 
 app = Flask(__name__)
 
-ruta_datos_tiempos_servicio = 'Datos/datos_tiempos_servicio.csv'
-ruta_nuevos_datos = 'Datos/nuevos_datos.csv'
+# Ruta de archivos en el servidor
+ruta_datos_tiempos_servicio = '/home/netto14cr/Optimizacion_tiempo_servicio_IO/Test_IO_04/Datos/datos_tiempos_servicio.csv'
+ruta_nuevos_datos = '/home/netto14cr/Optimizacion_tiempo_servicio_IO/Test_IO_04/Datos/nuevos_datos.csv'
 
 data_with_solution = pd.read_csv(ruta_datos_tiempos_servicio)
 data_without_solution = pd.read_csv(ruta_nuevos_datos)
