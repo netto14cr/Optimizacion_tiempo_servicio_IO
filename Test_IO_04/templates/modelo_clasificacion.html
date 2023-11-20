@@ -1,0 +1,122 @@
+<!-- templates/modelo_clasificacion.html -->
+{% extends 'base.html' %}
+
+{% block title %}Resultados de Clasificación{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <!-- Gráfico de Dispersión 3D -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Gráfico de Dispersión 3D</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                {{ scatter_plot | safe }}
+            </div>
+        </div>
+    </div>
+
+  
+
+    <!-- Gráfico de Pastel -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Gráfico de Pastel</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                {{ pie_chart | safe }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Matriz de Confusión -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Matriz de Confusión</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    {% for row in matriz_confusion %}
+                        <tr>
+                            {% for cell in row %}
+                                <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+  <!-- Gráfico de Barras Apiladas -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Gráfico de Barras Apiladas</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                {{ stacked_bar_chart | safe }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Informe de Clasificación -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Informe de Clasificación</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for metrica in informe_clasificacion %}
+                            <tr>
+                                <td>{{ metrica['Métrica'] }}</td>
+                                <td>{{ metrica['Valor'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

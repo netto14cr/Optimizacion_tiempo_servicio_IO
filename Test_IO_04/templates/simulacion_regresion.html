@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+    <!-- Card 1 - Simulación de Llamadas al 911 -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Simulacion de Llamadas al 911</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp1 }}</p>
+                {{ graph1 | safe }}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Card 2 - Tabla de simulación datos  -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Tabla de simulación datos</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <h1>Datos Utilizados en la Simulación</h1>
+                {{ tabla | safe }}
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Card 2 - Histograma de Duración de Llamadas -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Histograma de Duracion de Llamadas</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp2 }}</p>
+                {{ graph2 | safe }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 - Boxplot de Duracion de Llamadas por Hora -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Boxplot de Duracion de Llamadas por Hora</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp3 }}</p>
+                {{ graph3 | safe }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4 - Visualización de Estadisticas descriptivas -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Estadísticas Descriptivas</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp4 }}</p>
+                {{ graph4 | safe }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 5 - Visualización de Predicciones vs. Valores Reales -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Visualizacion de las Predicciones vs. Valores Reales</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp5 }}</p>
+                {{ graph5 | safe }}
+                <p>MSE (Error cuadrático medio): {{ mse_value }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 6 - Matriz de Correlación -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Matriz de Correlacion</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp6 }}</p>
+                {{ graph6 | safe }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

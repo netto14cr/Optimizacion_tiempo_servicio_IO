@@ -2,17 +2,30 @@
 
 {% block content %}
 
-                <h1>Optimización del Tiempo de Servicio</h1>
-                <p>Bienvenido a nuestra aplicación de optimización del tiempo de servicio. Aquí, utilizamos la Teoría de Colas y Analytics Predictivas para mejorar la eficiencia en la prestación de servicios.</p>
-
-                <h2>Cómo funciona:</h2>
-                <p>Nuestra aplicación se basa en un modelo de regresión lineal implementado con Machine Learning. Este modelo toma en cuenta la variable de entrada y predice el tiempo de servicio necesario. Para ello, analiza datos históricos de dos conjuntos:</p>
-                <ul>
-                    <li><strong>Con Solución:</strong> Datos de tiempos de servicio con solución a un problema específico.</li>
-                    <li><strong>Sin Solución:</strong> Datos de tiempos de servicio sin solución a un problema.</li>
-                </ul>
-
-                <p>Para ambos conjuntos de datos, generamos un resumen que muestra la efectividad de nuestro modelo predictivo. Además, presentamos gráficos que ilustran las predicciones realizadas por el algoritmo.</p>
-
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Optimización del Tiempo de Servicio: Transformando la Experiencia de Atención</h1>
+                <p>Bienvenido a nuestra plataforma de Optimización del Tiempo de Servicio, donde aplicamos rigurosas metodologías de investigación y análisis predictivo para mejorar la eficiencia en la atención médica y la gestión de citas. Explora cómo nuestras soluciones personalizadas han impactado positivamente en dos áreas clave: el servicio de emergencia 911 y la gestión de citas médicas.</p>
                 
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2>Optimización del Servicio de Emergencia 911</h2>
+                <p>Para mejorar la eficiencia en la atención del 911, desarrollamos una metodología integral que comenzó con la simulación realista del escenario de llamadas al 911. A través de análisis visual y la implementación de un modelo de regresión lineal, evaluamos la capacidad del sistema para prever la duración de las llamadas y exploramos relaciones clave mediante análisis de correlación. <a href="simulacion_regresion">Ver más información sobre cómo funciona el método de regresión y sus datos estadísticos</a>.</p>
+                <!-- Agrega más detalles o enlaces a la demostración de la metodología del 911 -->
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2>Optimización de la Gestión de Citas Médicas</h2>
+                <p>En nuestro esfuerzo por optimizar la gestión de citas médicas, diseñamos una metodología sólida que inició con la simulación detallada de la programación de citas. La exploración visual de datos, junto con un modelo de regresión lineal para el análisis de datos, permitió anticipar tiempos de espera. Mediante análisis de correlación, identificamos factores clave que afectan la gestión de citas. <a href="modelo_clasificacion">Ver más información sobre cómo funciona el método de regresión lineal y sus datos estadísticos</a>.</p>
+                <!-- Agrega más detalles o enlaces a la demostración de la metodología de citas médicas -->
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

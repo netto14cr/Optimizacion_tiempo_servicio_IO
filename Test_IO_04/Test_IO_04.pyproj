@@ -22,6 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ModeloClasificacion.py" />
+    <Compile Include="SimulacionRegresion.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Test_IO_04.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
