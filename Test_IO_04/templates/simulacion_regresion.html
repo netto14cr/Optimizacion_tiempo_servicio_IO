@@ -3,24 +3,6 @@
 {% block content %}
 <div class="row">
 
-    <!-- Card 1 - Simulación de Llamadas al 911 -->
-    <div class="col-md-12">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Simulacion de Llamadas al 911</h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body">
-                <p>{{ exp1 }}</p>
-                {{ graph1 | safe }}
-            </div>
-        </div>
-    </div>
-
 
     <!-- Card 2 - Tabla de simulación datos  -->
     <div class="col-md-12">
@@ -132,5 +114,24 @@
             </div>
         </div>
     </div>
+
+       <!-- Card 1 - Simulación de Llamadas al 911 -->
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Simulacion de Llamadas al 911</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ exp1 }}</p>
+                {{ graph1 | safe }}
+            </div>
+        </div>
+    </div>
+
 </div>
 {% endblock %}

@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import os
+from flask import Flask, render_template,request, url_for
 
-from flask import Flask, render_template
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt
-import io
-import base64
+
 
 from SimulacionRegresion import SimulacionRegresion 
 from ModeloClasificacion import ModeloClasificacion
@@ -73,13 +70,73 @@ def mostrar_resultados():
 
     # Pasar variables a la plantilla
     return render_template('modelo_clasificacion.html',
-                           matriz_confusion=matriz_confusion,
-                           informe_clasificacion=informe_clasificacion,
-                           scatter_plot=scatter_plot,
-                           stacked_bar_chart=stacked_bar_chart,
-                           pie_chart=pie_chart)
+    matriz_confusion=matriz_confusion,informe_clasificacion=informe_clasificacion,
+    scatter_plot=scatter_plot,stacked_bar_chart=stacked_bar_chart,pie_chart=pie_chart)
 
 
+#---------------------------------------------------------------------------
+
+
+
+@app.route('/analisis')
+def analisis_pdf():
+    # Ruta local del archivo PDF
+    pdf_01_local = 'Datos/1_Latex_Analisis_predictivo.pdf'
+    print("Ruta del PDF:", pdf_01_local)  # Agrega esta línea
+
+    # Construir la URL completa del PDF utilizando url_for
+    pdf_url = url_for('static', filename=pdf_01_local)
+    print("Ruta completa PDF:", pdf_url)  # Agrega esta línea
+
+    # Renderiza la plantilla HTML con la URL del PDF
+    return render_template('analisis_pdf.html', contenido_pdf=pdf_url)
+
+
+
+@app.route('/presentacion')
+def presentacion_pdf():
+    # Ruta de tu archivo PDF
+    pdf_02_local = 'Datos/2_Presentacion_Analisis_predictivo.pdf'
+
+    # Construir la URL completa del PDF utilizando url_for
+    pdf_url = url_for('static', filename=pdf_02_local)
+    print("Ruta completa PDF:", pdf_url)  # Agrega esta línea
+
+    # Renderiza la plantilla HTML con el contenido del PDF
+    return render_template('presentacion_pdf.html', contenido_pdf=pdf_url)
+
+
+"""
+#-----------------------   servidor------------------------
+@app.route('/analisis')
+def analisis_pdf():
+    # Ruta local del archivo PDF
+    pdf_filename = '1_Latex_Analisis_predictivo.pdf'
+    pdf_path = os.path.join('static', 'Datos', pdf_filename)
+
+    # Construir la URL completa del PDF utilizando url_for
+    pdf_url = url_for('static', filename=pdf_path)
+    print("Ruta completa PDF:", pdf_url)  # Agrega esta línea
+
+    # Renderiza la plantilla HTML con el contenido del PDF
+    return render_template('analisis_pdf.html', contenido_pdf=pdf_path)
+
+
+
+@app.route('/presentacion')
+def presentacion_pdf():
+    # Ruta local del archivo PDF
+    pdf_filename = '2_Presentacion_Analisis_predictivo.pdf'
+    pdf_path = os.path.join('static', 'Datos', pdf_filename)
+
+    # Construir la URL completa del PDF utilizando url_for
+    pdf_url = url_for('static', filename=pdf_path)
+    print("Ruta completa PDF:", pdf_url)  # Agrega esta línea
+
+    # Renderiza la plantilla HTML con el contenido del PDF
+    return render_template('presentacion_pdf.html', contenido_pdf=pdf_path)
+
+"""
 
 
 if __name__ == '__main__':

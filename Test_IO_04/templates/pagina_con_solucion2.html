@@ -1,0 +1,32 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="card">
+            <h2 class="card-header">Datos con solución 2</h2>
+            <div class="card-body">
+                <h3>Tabla con datos atencion</h3>
+                {{ data_table|safe }}
+            </div>
+            <div class="card-body">
+                <h3>Resultados</h3>
+                {{ summary_con|safe }}
+            </div>
+            <div class="card-body">
+                <h3>Gráfico</h3>
+                <div>
+                    {{ graph_con|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

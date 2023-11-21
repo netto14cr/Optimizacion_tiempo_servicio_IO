@@ -62,36 +62,39 @@ class SimulacionRegresion:
         self.df = self.df.replace([np.inf, -np.inf], 9999)
 
     def simulacion_llamadas(self):
-        tiempo_espera = np.zeros(self.duracion_simulacion_horas * 60)
-        for hora in range(self.duracion_simulacion_horas):
-            llamadas = np.random.poisson(self.llamadas_por_hora[hora])
-            for _ in range(llamadas):
-                llamada_inicio = np.random.uniform(0, 60)
-                tiempo_espera[hora * 60 + int(llamada_inicio)] += 1
+        try: 
+            tiempo_espera = np.zeros(self.duracion_simulacion_horas * 60)
+            for hora in range(self.duracion_simulacion_horas):
+                llamadas = np.random.poisson(self.llamadas_por_hora[hora])
+                for _ in range(llamadas):
+                    llamada_inicio = np.random.uniform(0, 60)
+                    tiempo_espera[hora * 60 + int(llamada_inicio)] += 1
 
-        # Convertir a DataFrame
-        self.df = pd.DataFrame({'TiempoEspera': tiempo_espera})
-        self.df['Hora'] = self.df.index // 60
-        self.df['Minuto'] = self.df.index % 60
+            # Convertir a DataFrame
+            self.df = pd.DataFrame({'TiempoEspera': tiempo_espera})
+            self.df['Hora'] = self.df.index // 60
+            self.df['Minuto'] = self.df.index % 60
 
 
-        #  Llamar al método para verificar variables de tiempo
-        self.verificacion_variables_tiempo()
+            #  Llamar al método para verificar variables de tiempo
+            self.verificacion_variables_tiempo()
 
-        # Visualización de llamadas
-        plt.figure(figsize=(10, 5))
-        sns.lineplot(data=self.df, x='Hora', y='TiempoEspera')
-        plt.title('Simulacion de Llamadas al 911')
-        plt.xlabel('Hora del Dia')
-        plt.ylabel('Numero de Llamadas en Espera')
+            # Visualización de llamadas
+            plt.figure(figsize=(10, 5))
+            sns.lineplot(data=self.df, x='Hora', y='TiempoEspera')
+            plt.title('Simulacion de Llamadas al 911')
+            plt.xlabel('Hora del Dia')
+            plt.ylabel('Numero de Llamadas en Espera')
 
-        # Ajustar automáticamente la disposición de los gráficos
-        plt.tight_layout()
-        
-        # Obtener el gráfico en formato base64
-        graph_url = self._get_base64_encoded_image(plt)
-      
-        return f'<img src="data:image/png;base64,{graph_url}" style="max-width:100%;height:auto;">'
+            # Ajustar automáticamente la disposición de los gráficos
+            plt.tight_layout()
+
+            # Obtener el gráfico en formato base64
+            graph_url = self._get_base64_encoded_image(plt)
+
+            return f'<img src="data:image/png;base64,{graph_url}" style="max-width:100%;height:auto;">'
+        except Exception as e:
+            print(f"Error: {e}")
 
 
     def visualizar_histograma(self):
